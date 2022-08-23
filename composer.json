@@ -1,0 +1,24 @@
+{
+    "name": "osynapsy.net/osynapsy-html",
+    "version": "1.0",
+    "homepage": "http://www.osynapsy.net/html",
+    "type": "library",
+    "description": "Osynapsy html library",
+    "keywords": ["Osynapsy", "Html factory library"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pietro Celeste",
+            "email": "p.celeste@osynapsy.net",
+            "homepage": "https://github.com/osynapsy/osynapsy-html/wiki"
+        }
+    ],
+    "require": {
+        "php" : ">=7.2.0"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Osynapsy\\Html\\": "src/Osynapsy/Html"
+        }
+    }
+}
