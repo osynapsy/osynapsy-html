@@ -9,12 +9,19 @@ $ composer require osynapsy.net/osynapsy-html "@stable"
 ```
 
 ## Usage
+```php
+
 <?php
 
-use Osynapsy\Html\Tag;
-
-$div = new Tag('div', 'test', 'panel');
+$div = new \Osynapsy\Html\Tag('div', 'div1', 'card');
+$div->addClass('bg-white')->add('Test');
 
 echo $div;
 
+```
 
+result
+
+```text
+<div id="div1" class="card bg-white">Test</div>
+```
