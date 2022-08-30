@@ -30,7 +30,7 @@ class Tag
     {
         $this->att(0, $tag);
         if (!empty($id)) {
-            $this->att('id', str_replace(['[',']'], ['-',''], $id));
+            $this->att('id', str_replace(['[]', '[', ']'], ['', '-',''], $id));
         }
         if (!empty($class)) {
             $this->att('class', $class);
