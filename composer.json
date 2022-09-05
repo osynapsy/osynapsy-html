@@ -1,6 +1,6 @@
 {
     "name": "osynapsy/osynapsy-html",
-    "version": "1.0",
+    "version": "1.0.1",
     "homepage": "http://www.osynapsy.net/html",
     "type": "library",
     "description": "Osynapsy html library",
