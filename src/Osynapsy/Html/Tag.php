@@ -16,8 +16,9 @@ class Tag
 
     private $attributes = [];
     private $childs = [];
+    private $tag;
     public $ref = [];
-    public $parent = null;
+    public $parent;
 
     /**
      * Constructor of tag
@@ -28,7 +29,7 @@ class Tag
      */
     public function __construct($tag = 'dummy', $id = null, $class = null)
     {
-        $this->att(0, $tag);
+        $this->tag = $tag;
         if (!empty($id)) {
             $this->att('id', str_replace(['[]', '[', ']'], ['', '-',''], $id));
         }
@@ -46,7 +47,7 @@ class Tag
     public function __get($attribute)
     {
         if ($attribute == 'tag') {
-            return $this->attributes[0];
+            return $this->tag;
         }
         return array_key_exists($attribute, $this->attributes) ? $this->attributes[$attribute] : null;
     }
@@ -144,7 +145,7 @@ class Tag
      */
     protected function build($depth = 0)
     {
-        $tag = array_shift($this->attributes);
+        $tag = $this->tag;
         if ($tag === 'dummy') {
             return $this->buildContentTag($depth - 1, '');
         }
@@ -198,7 +199,7 @@ class Tag
 
     protected function buildClosingTag($tag)
     {
-        return  "</{$tag}>";
+        return "</{$tag}>";
     }
 
     /**
@@ -206,7 +207,7 @@ class Tag
      *
      * @param string $tag
      * @param string $id
-     * @return \Osynapsy\Html\tag
+     * @return \Osynapsy\Html\Tag
      */
     public static function create($tag, $id = null, $class = null)
     {
@@ -226,6 +227,16 @@ class Tag
     public function getAttribute($attributeId)
     {
         return array_key_exists($attributeId, $this->attributes) ? $this->attributes[$attributeId] : null;
+    }
+
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    public function getTag()
+    {
+        return $this->tag;
     }
 
     /**
