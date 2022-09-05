@@ -187,7 +187,7 @@ class Component extends Tag
             self::$require[$type][] = $file;
             return;
         }
-        self::$require[$type][] = self::buildScriptWebPathWithComposer($object, $file);
+        self::$require[$type][] = strpos($file, '//') === 0 ? $file : self::buildScriptWebPathWithComposer($object, $file);
     }
 
     protected static function buildScriptWebPathWithComposer($object, $file)
